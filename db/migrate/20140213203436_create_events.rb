@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration
       t.time "ante_time", :default => 0
       t.date "event_date"
       t.time "event_time", :default => 0
-      t.string "event_status"
+      t.string "event_status", :default => 'New'
       t.timestamps
     end
   end

@@ -1,0 +1,44 @@
+<%= link_to("<< Back to Event's List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="events new">
+	<h2>Create Event</h2>
+
+	<%= form_for(:event, :url => {:action => 'create'}) do |f| %>
+
+	<table summary="Event form fields">
+		<tr>
+			<th>Event Name</th>
+			<td><%= f.text_field(:event_name) %></td>
+		</tr>
+		<tr>
+			<th>Event Date</th>
+			<td><%= f.text_field(:event_date) %></td>
+		</tr>
+		<tr>
+			<th>Ante Date</th>
+			<td><%= f.text_field(:ante_date) %></td>
+		</tr>
+		<tr>
+			<th>Price Per Person</th>
+			<td><%= f.text_field(:price_per_person) %></td>
+		</tr>
+		<tr>
+			<th>Attendee Floor</th>
+			<td><%= f.text_field(:attendee_floor) %></td>
+		</tr>
+		<tr>
+			<th>Attendee Ceiling</th>
+			<td><%= f.text_field(:attendee_ceiling) %></td>
+		</tr>
+		<tr>
+			<th>Event Status</th>
+			<td><%= f.text_field(:event_status) %></td>
+		</tr>
+	</table>
+
+	<div class="form-buttons">
+		<%= submit_tag("Create Event") %>
+	</div>
+
+  <% end %>
+ </div>

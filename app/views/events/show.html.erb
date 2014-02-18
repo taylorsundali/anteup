@@ -1,0 +1,43 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="events show">
+  <h2>Show event</h2>
+
+  <table summary="event detail view">
+    <tr>
+      <th>Event Name</th>
+      <td><%= @event.event_name %></td>
+    </tr>
+    <tr>
+      <th>Event Date</th>
+      <td><%= @event.event_date %></td>
+    </tr>
+    <tr>
+      <th>Ante Date</th>
+      <td><%= @event.ante_date %></td>
+    </tr>
+    <tr>
+      <th>Price Per Person</th>
+      <td><%= @event.price_per_person %></td>
+    </tr>
+    <tr>
+      <th>Attendee Floor</th>
+      <td><%= @event.attendee_floor %></td>
+    </tr>
+    <tr>
+      <th>Attendee Ceiling</th>
+      <td><%= @event.attendee_ceiling %></td>
+    </tr>
+    <tr>
+      <th>Event Status</th>
+      <td><%= @event.event_status %></td>
+    </tr>
+  </table>
+
+</div>

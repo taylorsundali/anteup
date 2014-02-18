@@ -1,0 +1,37 @@
+<div class="event index">
+
+  <h2>Events</h2>
+
+  <%= link_to("Create New Event", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="event list">
+    <tr class="header">
+      <th>User_id</th>
+      <th>Event Name</th>
+      <th>Event Date</th>
+      <th>Ante Date</th>
+      <th>Price Per Person</th>
+      <th>Attendee Floor</th>
+      <th>Attendee Ceiling</th>
+      <th>Event Status</th>
+    </tr>
+    <% @event.each do |event| %>
+    <tr>
+      <td><%= event.user_id %></td>
+      <td><%= event.event_name %></td>
+      <td><%= event.event_date %></td>
+      <td><%= event.ante_date %></td>
+      <td><%= event.price_per_person %></td>
+      <td><%= event.attendee_floor %></td>
+      <td><%= event.attendee_ceiling %></td>
+      <td><%= event.event_status %></td>
+      <br>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => event.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => event.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => event.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
