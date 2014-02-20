@@ -2,11 +2,12 @@ class EventsController < ApplicationController
   
   layout false
   def index
-    @event = Event.order("event_name ASC")
+    @event = Event.order("event_date ASC")
   end
 
   def show
     @event = Event.find(params[:id])
+    @user = User.find(1)
   end
 
   def new
@@ -23,6 +24,7 @@ class EventsController < ApplicationController
     if @event.update_attributes(event_params)
   # update the object
   # If the update succeeds, redirect to the index action
+      flash[:notice] = "Event Updated Successfully!"
       redirect_to(:action => 'show', :id => @event.id)
     else
       render('edit')
@@ -36,6 +38,7 @@ class EventsController < ApplicationController
   # Save the object
     if @event.save
   # If the save succeeds, redirect to the index action
+      flash[:notice] = "Event Created Successfully!"
       redirect_to(:action => 'index')
     else
       render('new')
@@ -50,6 +53,7 @@ class EventsController < ApplicationController
   def destroy 
     event = Event.find(params[:id]).destroy
     redirect_to(:action => 'index')
+    flash[:notice] = "Event Deleted Successfully!"
   end
 
   private 

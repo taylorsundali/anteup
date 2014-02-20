@@ -13,7 +13,6 @@
       <th>Price Per Person</th>
       <th>Attendee Floor</th>
       <th>Attendee Ceiling</th>
-      <th>Event Status</th>
     </tr>
     <% @event.each do |event| %>
     <tr>
@@ -24,7 +23,6 @@
       <td><%= event.price_per_person %></td>
       <td><%= event.attendee_floor %></td>
       <td><%= event.attendee_ceiling %></td>
-      <td><%= event.event_status %></td>
       <br>
       <td class="actions">
         <%= link_to("Show", {:action => 'show', :id => event.id}, :class => 'action show') %>

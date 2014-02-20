@@ -1,6 +1,6 @@
 AnteUp::Application.routes.draw do
 
-  root "demo#index"
+  root "events#new"
 
   # get "demo/index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
