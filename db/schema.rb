@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218014746) do
+ActiveRecord::Schema.define(version: 20140220022020) do
 
   create_table "attendee_specifics", force: true do |t|
     t.integer  "user_id"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20140218014746) do
     t.date     "event_date"
     t.time     "event_time",       default: '2000-01-01 00:00:00'
     t.string   "event_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fb_users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

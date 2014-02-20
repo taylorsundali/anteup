@@ -1,7 +1,7 @@
-<%= link_to("<< Back to Event's List", {:action => 'index'}, :class => 'back-link') %>
+<!--<%= link_to("<< Back to Event's List", {:action => 'index'}, :class => 'back-link') %> -->
 
 <div class="events new">
-	<h2>Create Event</h2>
+	<h1>Create Event</h1>
 
 	<%= form_for(:event, :url => {:action => 'create'}) do |f| %>
 
@@ -32,9 +32,12 @@
 		</tr>
 	</table>
 
+	<h3>To create your event, log in with Facebook. </h3>
+
+	<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 	<div class="form-buttons">
 		<%= submit_tag("Create Event") %>
 	</div>
-
   <% end %>
  </div>
+

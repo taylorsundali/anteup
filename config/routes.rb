@@ -1,9 +1,16 @@
 AnteUp::Application.routes.draw do
 
-  root "events#new"
+  root "users#index"
 
   # get "demo/index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
+  
+  #match '/auth/:provider/callback' => 'sessions#create'
+
+  #match '/signout' => 'sessions#destroy', :as => :signout
+
+  #match '/signin' => 'sessions#new', :as => :signin
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -52,8 +52,8 @@ class EventsController < ApplicationController
 
   def destroy 
     event = Event.find(params[:id]).destroy
+    flash[:notice] = "Event '#{event.event_name}' Deleted Successfully!"
     redirect_to(:action => 'index')
-    flash[:notice] = "Event Deleted Successfully!"
   end
 
   private 
