@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220022020) do
+ActiveRecord::Schema.define(version: 20140220201828) do
 
   create_table "attendee_specifics", force: true do |t|
     t.integer  "user_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20140220022020) do
 
   create_table "events", force: true do |t|
     t.integer  "user_id"
-    t.integer  "event_attendees"
     t.integer  "attendee_floor"
     t.integer  "attendee_ceiling"
     t.integer  "price_per_person"
@@ -35,16 +34,7 @@ ActiveRecord::Schema.define(version: 20140220022020) do
     t.time     "ante_time",        default: '2000-01-01 00:00:00'
     t.date     "event_date"
     t.time     "event_time",       default: '2000-01-01 00:00:00'
-    t.string   "event_status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "fb_users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "email"
+    t.string   "event_status",     default: "New"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,18 +47,11 @@ ActiveRecord::Schema.define(version: 20140220022020) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.string   "status"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "display_name"
-    t.string   "profile_picture_url"
-    t.text     "about"
-    t.boolean  "admin",                    default: false
-    t.datetime "date_of_signup"
-    t.datetime "date_of_first_created"
-    t.datetime "date_of_first_attendance"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

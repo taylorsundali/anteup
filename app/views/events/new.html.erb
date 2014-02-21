@@ -1,9 +1,34 @@
 <!--<%= link_to("<< Back to Event's List", {:action => 'index'}, :class => 'back-link') %> -->
 
+
+<!-- The Below Code display's an output based on the text input!
+<script type="text/javascript">
+	function updateSpan(){
+	document.getElementById('textoutput').innerHTML=document.getElementById('textinput').value;
+	}
+</script>
+
+<input type="text" id="textinput" onkeyup="updateSpan(); return false;" />
+<span id="textoutput"></span>
+-->
+
+<!-- The following code shows how text_field relates to <input type>
+text_field(:snippet, :code, size: 20, class: 'code_input')
+# => <input type="text" id="snippet_code" name="snippet[code]" size="20" value="#{@snippet.code}" class="code_input" /> 
+-->
+
+
+<script type="text/javascript">
+	function updateSpan(){
+		document.getElementById("event_out").innerHTML=document.getElementById("event_name").value;
+	}
+</script>
+
 <div class="events new">
 	<h1>Create Event</h1>
 
 	<%= form_for(:event, :url => {:action => 'create'}) do |f| %>
+
 
 	<table summary="Event form fields">
 		<tr>
@@ -32,12 +57,17 @@
 		</tr>
 	</table>
 
-	<h3>To create your event, log in with Facebook. </h3>
-
-	<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 	<div class="form-buttons">
 		<%= submit_tag("Create Event") %>
 	</div>
   <% end %>
- </div>
+
+
+  	<span id='event_out'></span>
+	<p>
+		<hr>
+		If __________ people give me $______ by _________ date, then I'll plan _________ on __________ at __________. 
+	</p>
+
+
 

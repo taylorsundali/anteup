@@ -7,11 +7,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @user = User.find(1)
   end
 
   def new
-    @event = Event.new({:price_per_person => "$5.00", :event_status => "New"})
+    @event = Event.new({:price_per_person => 5, :event_status => "New"})
   end
 
   def edit
