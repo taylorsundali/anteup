@@ -1,7 +1,7 @@
+<% @page_title = "Edit Event" %>
 <%= link_to("<< Back to Event's List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="events edit">
-	<h2>Update Event</h2>
 
 	<%= form_for(:event, :url => {:action => 'update', :id => @event.id}) do |f| %>
 

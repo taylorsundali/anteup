@@ -1,0 +1,35 @@
+<div class="user index">
+
+  <%= link_to("Create New User", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="event list">
+    <tr class="header">
+      <th>id</th>
+      <th>provider</th>
+      <th>uid</th>
+      <th>name</th>
+      <th>oauth_token</th>
+      <th>oauth_expires_at</th>
+      <th>created_at</th>
+      <th>updated_at</th>
+    </tr>
+    <% @user.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.provider %></td>
+      <td><%= user.uid %></td>
+      <td><%= user.name %></td>
+      <td><%= user.oauth_token %></td>
+      <td><%= user.oauth_expires_at %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.updated_at %></td>
+      <br>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => user.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => user.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => user.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

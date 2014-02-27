@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   
-  layout false
+  layout "admin"
   def index
     @event = Event.order("event_date ASC")
   end
@@ -11,6 +11,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new({:price_per_person => 5, :event_status => "New"})
+    #http://guides.rubyonrails.org/action_controller_overview.html#filters
+    #######################
+    # I'm fairly certain I need to have a filter (see link above) to require a login
+    # in order to create an event. 
+    
   end
 
   def edit
@@ -36,9 +41,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
   # Save the object
     if @event.save
-  # If the save succeeds, redirect to the index action
-      flash[:notice] = "Event Created Successfully!"
-      redirect_to(:action => 'index')
+  # If the save succeeds, redirect to the index ApplicationController
+      flash[:notice] = "Event Created Successfully! To view your event, please register or login."
+      redirect_to(:controller => :users, :action => :new)
     else
       render('new')
   # If the save fails, reload the form so the user can fix the problems

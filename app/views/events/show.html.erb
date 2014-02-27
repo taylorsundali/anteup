@@ -1,14 +1,7 @@
-<!-- Displays a flash has notice if there is one to display -->
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
+<% @page_title = "Event Detail"%>
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="events show">
-  <h2>Show event</h2>
 
   <table summary="event detail view">
     <tr>

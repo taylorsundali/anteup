@@ -1,7 +1,8 @@
+<% @page_title = "Delete Event" %>
+
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <div class="events delete">
-  <h2>Delete Event</h2>
 
   <%= form_for(:event, :url => {:action => 'destroy', :id => @event.id}) do |f| %>
 

@@ -1,2 +1,19 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% @page_title = "User"%>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="users show">
+
+  <%= form_for(:user, :url => {:action => 'show', :id => @user.id}) do |f| %>
+
+	<table summary="User Fields">
+		<tr class="header">
+			<th>User_ID</th>
+			<th>Name</th>
+		</tr>
+		<tr>
+			<td><%= @user.id %></td>
+			<td><%= @user.name %></td>
+		</tr>
+
+  <% end %>
+</div>

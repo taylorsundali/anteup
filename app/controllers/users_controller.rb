@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   
-  layout false
+  layout "admin"
   def index
+    @user = User.order("id, name ASC")
   end
 
   def show
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -13,9 +14,31 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+  # Find an existing object using form parameters
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+  # update the object
+  # If the update succeeds, redirect to the index action
+      flash[:notice] = "User Updated Successfully!"
+      redirect_to(:action => 'show', :id => @user.id)
+    else
+      render('edit')
+  # If the update fails, reload the form so the user can fix the problems
+    end
+  end
+
+  def destroy
+    user = User.find(params[:id]).destroy
+    flash[:notice] = "User '#{user.name}' Deleted Successfully!"
+    redirect_to(:action => 'index')
   end
 
   def delete
+    @user = User.find(params[:id])
   end
 
   def create
@@ -25,7 +48,7 @@ class UsersController < ApplicationController
     if @user.save
   # If the save succeeds, redirect to the index action
       flash[:notice] = "User Created Successfully!"
-      redirect_to(:controller => 'events', :action => 'index')
+      redirect_to(:controller => 'users', :action => 'index')
     else
       render('new')
   # If the save fails, reload the form so the user can fix the problems

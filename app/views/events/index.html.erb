@@ -1,13 +1,5 @@
-<!-- Displays a flash has notice if there is one to display -->
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
+<% @page_title = "Events" %>
 <div class="event index">
-
-  <h2>Events</h2>
 
   <%= link_to("Create New Event", {:action => 'new'}, :class => 'action new') %>
 

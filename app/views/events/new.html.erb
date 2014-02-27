@@ -1,3 +1,4 @@
+<% @page_title = "Create Event"%>
 <!--<%= link_to("<< Back to Event's List", {:action => 'index'}, :class => 'back-link') %> -->
 
 
@@ -25,7 +26,6 @@ text_field(:snippet, :code, size: 20, class: 'code_input')
 </script>
 
 <div class="events new">
-	<h1>Create Event</h1>
 
 	<%= form_for(:event, :url => {:action => 'create'}) do |f| %>
 

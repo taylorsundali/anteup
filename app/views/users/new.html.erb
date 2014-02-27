@@ -1,6 +1,5 @@
-
+<% @page_title = "Registration"%>
 <div class="users new">
-  <h1>New User</h1>
 
   <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
 
@@ -29,7 +28,7 @@
   </table>
 
   <div class="form-buttons">
-    <%= submit_tag("Submit") %>
+    <%= submit_tag("Register") %>
   </div>
   <% end %>
 
